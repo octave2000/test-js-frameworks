@@ -1,0 +1,195 @@
+version: '3.9'
+
+services:
+  # Angular Project
+  angular:
+    build:
+      context: ./angular
+      dockerfile: Dockerfile
+    container_name: test-angular
+    ports:
+      - "4200:4200"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./angular:/app
+      - /app/node_modules
+    command: npm start
+    networks:
+      - test-frameworks
+
+  # React App (Create React App)
+  create-react-app:
+    build:
+      context: ./create-react-app
+      dockerfile: Dockerfile
+    container_name: test-react
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_API_URL=http://localhost:3001
+    volumes:
+      - ./create-react-app:/app
+      - /app/node_modules
+    command: npm start
+    networks:
+      - test-frameworks
+
+  # Nuxt Project
+  nuxt:
+    build:
+      context: ./nuxt
+      dockerfile: Dockerfile
+    container_name: test-nuxt
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./nuxt:/app
+      - /app/node_modules
+    command: npm run dev
+    networks:
+      - test-frameworks
+
+  # Vite Project
+  vite:
+    build:
+      context: ./vite
+      dockerfile: Dockerfile
+    container_name: test-vite
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./vite:/app
+      - /app/node_modules
+    command: npm run dev
+    networks:
+      - test-frameworks
+
+  # SvelteKit Project
+  sveltekit:
+    build:
+      context: ./sveltekit
+      dockerfile: Dockerfile
+    container_name: test-sveltekit
+    ports:
+      - "5174:5174"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./sveltekit:/app
+      - /app/node_modules
+    command: npm run dev
+    networks:
+      - test-frameworks
+
+  # Vue Project
+  vue:
+    build:
+      context: ./vue
+      dockerfile: Dockerfile
+    container_name: test-vue
+    ports:
+      - "5175:5175"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./vue:/app
+      - /app/node_modules
+    command: npm run dev
+    networks:
+      - test-frameworks
+
+  # Astro Project
+  astro:
+    build:
+      context: ./astro
+      dockerfile: Dockerfile
+    container_name: test-astro
+    ports:
+      - "3002:3000"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./astro:/app
+      - /app/node_modules
+    command: npm run dev
+    networks:
+      - test-frameworks
+
+  # Solid Project
+  solid:
+    build:
+      context: ./solid
+      dockerfile: Dockerfile
+    container_name: test-solid
+    ports:
+      - "3003:3000"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./solid:/app
+      - /app/node_modules
+    command: npm run dev
+    networks:
+      - test-frameworks
+
+  # Remix Project
+  remix:
+    build:
+      context: ./remix
+      dockerfile: Dockerfile
+    container_name: test-remix
+    ports:
+      - "3004:3000"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./remix:/app
+      - /app/node_modules
+    command: npm run dev
+    networks:
+      - test-frameworks
+
+  # Fastify Static Project
+  fastify-static:
+    build:
+      context: ./fastify-static
+      dockerfile: Dockerfile
+    container_name: test-fastify
+    ports:
+      - "3005:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+    volumes:
+      - ./fastify-static:/app
+      - /app/node_modules
+    command: npm start
+    networks:
+      - test-frameworks
+
+  # Sails Project
+  sails:
+    build:
+      context: ./sails
+      dockerfile: Dockerfile
+    container_name: test-sails
+    ports:
+      - "1337:1337"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./sails:/app
+      - /app/node_modules
+    command: npm start
+    networks:
+      - test-frameworks
+
+networks:
+  test-frameworks:
+    driver: bridge
