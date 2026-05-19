@@ -55,13 +55,6 @@ services:
       dockerfile: Dockerfile
     container_name: test-astro
   
-
-  # Solid Project
-  solid:
-    build:
-      context: ./solid
-      dockerfile: Dockerfile
-    container_name: test-solid
    
 
   # Remix Project
