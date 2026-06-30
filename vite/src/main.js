@@ -42,7 +42,7 @@ document.querySelector('#app').innerHTML = `
   </div>
   <div id="social">
     <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#social-icon"></use></svg>
-    <h2>Connect with us</h2>
+    <h2>Connect with us loww</h2>
     <p>Join the Vite community</p>
     <ul>
       <li><a href="https://github.com/vitejs/vite" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>GitHub</a></li>
